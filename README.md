@@ -5,7 +5,7 @@ Transcribe your voice by Google's Cloud Speech-to-Text API with esp32<br>
  
 ## Prepare
 - [ESP32-DevKitC](https://www.espressif.com/en/products/hardware/esp32-devkitc/overview)  : espressif
-- [ICS43434](https://www.tindie.com/products/onehorse/ics43434-i2s-digital-microphone/) : tindie (or similar product)
+- [ICS43434](https://www.tindie.com/products/onehorse/ics43434-i2s-digital-microphone/) Microphone : tindie (or similar product)
 
 ## Wiring
  ![Wiring](doc/Wiring.png)
