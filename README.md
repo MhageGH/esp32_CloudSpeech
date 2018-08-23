@@ -15,6 +15,6 @@ Transcribe your voice by Google's Cloud Speech API with esp32<br>
 - [arduino-esp32](https://github.com/espressif/arduino-esp32)
 
 ## How to use
-see https://cloud.google.com/speech-to-text/docs/reference/rest/?hl=ja<br>
+See https://cloud.google.com/speech-to-text/docs/reference/rest/?hl=ja<br>
 Set network parameter in network_param.h.<br>
-Say to the microphone and see serial output.
+Say to the microphone and see serial monitor.
