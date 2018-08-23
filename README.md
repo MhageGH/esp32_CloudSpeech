@@ -1,6 +1,6 @@
 # esp32_CloudSpeech
 Transcribe your voice by Google's Cloud Speech API with esp32<br>
- ![photo](doc/photo.jpg)
+ ![photo1](doc/photo.jpg)
  ![Transcribe](doc/Transcribe.png)
  
 ## Prepare
