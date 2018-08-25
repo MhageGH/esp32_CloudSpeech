@@ -1,8 +1,11 @@
 # esp32_CloudSpeech
 Let's try voice recognition by machine learning!<br>
-Transcribe your voice by Google's Cloud Speech-to-Text API with esp32<br>
- ![photo1](doc/photo1.jpg)
- ![M5StackFIRE](doc/M5StackFIRE.jpg)
+Transcribe your voice by Google's Cloud Speech-to-Text API with esp32<br><br> 
+In the case of esp32 + microphone<br>
+ ![photo1](doc/photo1.jpg)<br><br>
+In the case of M5StackFIRE<br>
+ ![M5StackFIRE](doc/M5StackFIRE.jpg)<br><br>
+Serial monitor<br>
  ![Transcribe](doc/Transcribe.png)
  
 ## Prepare
