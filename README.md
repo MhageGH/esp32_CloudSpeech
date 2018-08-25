@@ -27,6 +27,6 @@ Serial monitor<br>
 - [arduino-esp32](https://github.com/espressif/arduino-esp32)
 
 ## How to use
-Get your account in https://cloud.google.com/speech-to-text/docs/reference/rest/?hl=ja <br>
+Get your account in https://cloud.google.com/speech-to-text/ <br>
 Set network parameter and your account information in network_param.h.<br>
 Say to the microphone and see serial monitor.
