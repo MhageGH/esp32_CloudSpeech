@@ -2,7 +2,7 @@
 Let's try voice recognition by machine learning!<br>
 Transcribe your voice by Google's Cloud Speech-to-Text API with esp32<br>
  ![photo1](doc/photo1.jpg)
- ![M5StackFIRE](doc/M5STackFIRE.jpg)
+ ![M5StackFIRE](doc/M5StackFIRE.jpg)
  ![Transcribe](doc/Transcribe.png)
  
 ## Prepare
