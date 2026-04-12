@@ -38,10 +38,10 @@ void Audio::CreateWavHeader(byte* header, int waveDataSize){
   header[21] = 0x00;
   header[22] = 0x01;  // monoral
   header[23] = 0x00;
-  header[24] = 0x80;  // sampling rate 16000
-  header[25] = 0x3E;
-  header[26] = 0x00;
-  header[27] = 0x00;
+  header[24] = (byte)(sampleRate & 0xff);  // sampling rate
+  header[25] = (byte)((sampleRate >> 8) & 0xff);
+  header[26] = (byte)((sampleRate >> 16) & 0xff);
+  header[27] = (byte)((sampleRate >> 24) & 0xff);
   header[28] = 0x00;  // Byte/sec = 16000x2x1 = 32000
   header[29] = 0x7D;
   header[30] = 0x00;

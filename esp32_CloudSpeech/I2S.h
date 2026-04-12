@@ -6,6 +6,8 @@
 #include "driver/i2s.h"
 #include "esp_system.h"
 
+#define SAMPLE_RATE 44100
+
 enum MicType {
   ADMP441,
   ICS43434,
