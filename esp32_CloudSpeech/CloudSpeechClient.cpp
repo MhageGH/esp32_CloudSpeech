@@ -33,7 +33,7 @@ void CloudSpeechClient::PrintHttpBody2(Audio* audio) {
 }
 
 void CloudSpeechClient::Transcribe(Audio* audio) {
-  String HttpBody1 = "{\"config\":{\"encoding\":\"LINEAR16\",\"sampleRateHertz\": 44100,\"languageCode\":\"ja-JP\"},\"audio\":{\"content\":\"";
+  String HttpBody1 = "{\"config\":{\"encoding\":\"LINEAR16\",\"sampleRateHertz\": 22050,\"languageCode\":\"ja-JP\"},\"audio\":{\"content\":\"";
   String HttpBody3 = "\"}}\r\n\r\n";
   int httpBody2Length = (audio->wavDataSize + sizeof(audio->paddedHeader))*4/3;  // 4/3 is from base64 encoding
   String ContentLength = String(HttpBody1.length() + httpBody2Length + HttpBody3.length());
