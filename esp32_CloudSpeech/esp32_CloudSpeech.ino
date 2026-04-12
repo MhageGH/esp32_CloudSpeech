@@ -8,7 +8,7 @@ void setup() {
   //Audio* audio = new Audio(ICS43434);
   Audio* audio = new Audio(M5STACKFIRE);
   audio->Record();
-  CloudSpeechClient* cloudSpeechClient = new CloudSpeechClient(USE_ACCESSTOKEN);
+  CloudSpeechClient* cloudSpeechClient = new CloudSpeechClient(USE_APIKEY);
   cloudSpeechClient->Transcribe(audio);
   delete cloudSpeechClient;
   delete audio;
