@@ -1,6 +1,7 @@
 #include "CloudSpeechClient.h"
 #include "network_param.h"
 #include <base64.h>
+#include <WiFi.h>
 
 CloudSpeechClient::CloudSpeechClient(Authentication authentication) {
   this->authentication = authentication;

@@ -54,7 +54,8 @@ I2S::I2S(MicType micType) {
 }
 
 int I2S::Read(char* data, int numData) {
-  return i2s_read_bytes(I2S_NUM_0, (char *)data, numData, portMAX_DELAY);
+  size_t bytes_read;
+  return i2s_read(I2S_NUM_0, (char *)data, numData, &bytes_read, portMAX_DELAY);
 }
 
 int I2S::GetBitPerSample() {
