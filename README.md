@@ -16,6 +16,7 @@ Serial monitor<br>
  or similar product <br><br>
  Or <br>
 - [M5Stack FIRE](https://www.switch-science.com/catalog/3953/) (Switch Science) - This product includes esp32 and microphone.
+- [M5Stack Core2](https://www.switch-science.com/products/11050) (Switch Science) - This product includes esp32 and microphone.
 
 ## Wiring
  ![Wiring](doc/Wiring.png)<br>
