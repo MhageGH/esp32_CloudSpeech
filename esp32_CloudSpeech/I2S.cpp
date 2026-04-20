@@ -1,8 +1,4 @@
 #include "I2S.h"
-#define PIN_I2S_BCLK 26
-#define PIN_I2S_LRC 22
-#define PIN_I2S_DIN 34
-#define PIN_I2S_DOUT 25
 
 // This I2S specification : 
 //  -   LRC high is channel 2 (right).
@@ -14,11 +10,12 @@
 I2S::I2S(MicType micType) {
   if (micType == M5GO || micType == M5STACKFIRE ) {
     BITS_PER_SAMPLE = I2S_BITS_PER_SAMPLE_16BIT;
+    CHANNEL_FORMAT = I2S_CHANNEL_FMT_RIGHT_LEFT;
     i2s_config_t i2s_config = {
       .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_TX | I2S_MODE_DAC_BUILT_IN | I2S_MODE_ADC_BUILT_IN),
       .sample_rate = SAMPLE_RATE,
       .bits_per_sample = BITS_PER_SAMPLE,
-      .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
+      .channel_format = CHANNEL_FORMAT,
       .communication_format = (i2s_comm_format_t)(I2S_COMM_FORMAT_I2S_MSB),
       .intr_alloc_flags = 0,
       .dma_buf_count = 2,
@@ -31,11 +28,12 @@ I2S::I2S(MicType micType) {
   }
   else if (micType == ADMP441 || micType == ICS43434 ) {
     BITS_PER_SAMPLE = I2S_BITS_PER_SAMPLE_32BIT;
+    CHANNEL_FORMAT = I2S_CHANNEL_FMT_RIGHT_LEFT;
     i2s_config_t i2s_config = {
       .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX),
       .sample_rate = SAMPLE_RATE,
       .bits_per_sample = BITS_PER_SAMPLE,
-      .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
+      .channel_format = CHANNEL_FORMAT,
       .communication_format = (i2s_comm_format_t)(I2S_COMM_FORMAT_I2S | I2S_COMM_FORMAT_I2S_MSB),
       .intr_alloc_flags = 0,
       .dma_buf_count = 16,
@@ -50,6 +48,29 @@ I2S::I2S(MicType micType) {
     i2s_set_pin(I2S_NUM_0, &pin_config);
     i2s_set_clk(I2S_NUM_0, SAMPLE_RATE, BITS_PER_SAMPLE, I2S_CHANNEL_STEREO);
   }
+  else if (micType == M5STACKCORE2)
+  {
+    BITS_PER_SAMPLE = I2S_BITS_PER_SAMPLE_16BIT;
+    CHANNEL_FORMAT = I2S_CHANNEL_FMT_ONLY_RIGHT;
+    i2s_config_t i2s_config = {
+        .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_PDM),
+        .sample_rate = SAMPLE_RATE,
+        .bits_per_sample = BITS_PER_SAMPLE,
+        .channel_format = CHANNEL_FORMAT,
+        .communication_format = I2S_COMM_FORMAT_I2S,
+        .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+        .dma_buf_count = 2,
+        .dma_buf_len = CHUNK
+    };
+    i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
+    i2s_pin_config_t tx_pin_config = {
+      .bck_io_num = I2S_PIN_NO_CHANGE,//未使用
+      .ws_io_num = CONFIG_I2S_LRCK_PIN,
+      .data_out_num = I2S_PIN_NO_CHANGE, // 未使用
+      .data_in_num = CONFIG_I2S_DATA_IN_PIN
+    };
+    i2s_set_pin(I2S_NUM_0, &tx_pin_config);
+  }
 }
 
 int I2S::Read(char* data, int numData) {
@@ -59,5 +80,9 @@ int I2S::Read(char* data, int numData) {
 
 int I2S::GetBitPerSample() {
   return (int)BITS_PER_SAMPLE;
+}
+
+int I2S::GetChannelFormat() {
+  return (int)CHANNEL_FORMAT;
 }
 
