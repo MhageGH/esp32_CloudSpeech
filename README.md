@@ -4,9 +4,9 @@ Transcribe your voice by Google's Cloud Speech-to-Text API with esp32<br><br>
 In the case of esp32 + microphone<br>
  ![photo1](doc/photo1.jpg)<br><br>
 In the case of M5Stack FIRE<br>
- ![M5StackFIRE](doc/M5StackFIRE.jpg)<br><br>
+ ![M5StackFIRE](doc/M5StackFIRE.jpg) ![M5StackCore2](doc/M5StackCore2.jpg)<br><br>
 Serial monitor<br>
- ![Transcribe](doc/Transcribe.png)
+ ![Transcribe](doc/Transcribe3.png)
  
 ## Prepare
 - [ESP32-DevKitC](https://www.espressif.com/en/products/hardware/esp32-devkitc/overview)  (espressif)

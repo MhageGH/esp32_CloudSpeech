@@ -1,8 +1,19 @@
 #include "Audio.h"
 
 Audio::Audio(MicType micType) {
-  wavData = new char*[wavDataSize/dividedWavDataSize];
-  for (int i = 0; i < wavDataSize/dividedWavDataSize; ++i) wavData[i] = new char[dividedWavDataSize];
+  if (micType == M5STACKCORE2)       // It must be multiple of dividedWavDataSize.
+  {
+    wavDataSize = 1200000;
+    wavData = (char**)ps_malloc(wavDataSize/dividedWavDataSize * sizeof(char*));
+    for (int i = 0; i < wavDataSize/dividedWavDataSize; ++i) wavData[i] = (char*)ps_malloc(dividedWavDataSize);
+    //wavData = new char*[wavDataSize/dividedWavDataSize];
+    //for (int i = 0; i < wavDataSize/dividedWavDataSize; ++i) wavData[i] = new char[dividedWavDataSize];
+  }
+  else {
+    wavDataSize = 60000;
+    wavData = new char*[wavDataSize/dividedWavDataSize];
+    for (int i = 0; i < wavDataSize/dividedWavDataSize; ++i) wavData[i] = new char[dividedWavDataSize];
+  }
   i2s = new I2S(micType);
 }
 

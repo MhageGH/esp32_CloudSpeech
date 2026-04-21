@@ -14,7 +14,7 @@ class Audio {
   void CreateWavHeader(byte* header, int waveDataSize);
 
 public:
-  static const int wavDataSize = 120000;                   // It must be multiple of dividedWavDataSize.
+  int wavDataSize;
   static const int dividedWavDataSize = i2sBufferSize/4;
   char** wavData;                                         // It's divided. Because large continuous memory area can't be allocated in esp32.
   byte paddedHeader[headerSize + 4] = {0};                // The size must be multiple of 3 for Base64 encoding. Additional byte size must be even because wave data is 16bit.
